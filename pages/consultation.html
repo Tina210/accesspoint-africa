@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Consultation | AccessPoint Africa</title>
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; color: #333; margin: 0; }
+        /* Background slideshow styles */
+        .bg-slideshow {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bg-slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s;
+        }
+        .bg-slide.active { opacity: 1; }
+        .bg-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(30, 30, 40, 0.55);
+            z-index: 1;
+        }
+        /* Content on top of background */
+        .nav, .hero-consult, .consult-form-section { position: relative; z-index: 2; }
+        .nav { background: rgba(255,255,255,0.95); padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 24px; font-weight: bold; color: #764ba2; display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #764ba2; }
+        .hero-consult { padding: 80px 0 40px; text-align: center; background: none; color: white; }
+        .hero-consult h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .hero-consult p { font-size: 1.2rem; opacity: 0.9; }
+        .consult-form-section { padding: 60px 0; }
+        .consult-form-container { max-width: 500px; margin: 0 auto; background: white; border-radius: 24px; box-shadow: 0 8px 32px rgba(118,75,162,0.10); padding: 48px 32px; }
+        .consult-form-title { color: #764ba2; text-align: center; margin-bottom: 10px; font-size: 2rem; }
+        .consult-form-subtitle { color: #555; text-align: center; margin-bottom: 32px; }
+        .consult-form { display: flex; flex-direction: column; gap: 20px; }
+        .consult-form input, .consult-form select, .consult-form textarea { padding: 14px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; }
+        .consult-form button { background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 16px; border-radius: 10px; font-size: 1.1rem; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s; }
+        .consult-form button:hover { background: linear-gradient(45deg, #764ba2, #667eea); }
+        #consultSuccess { display:none; color: #009975; text-align: center; margin-top: 20px; font-weight: bold; }
+        @media (max-width: 600px) {
+            .hero-consult h1 { font-size: 1.5rem; }
+            .consult-form-container { padding: 16px 2px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-slideshow">
+        <div class="bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="bg-overlay"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">🌍 AccessPoint Africa</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#process">Process</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#request-match">Request a Match</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-consult fade-in-up">
+        <h1>Schedule a Consultation</h1>
+        <p>Let’s connect! Book a session with our team to discuss your project, partnership, or opportunity in Africa.</p>
+    </section>
+    <!-- Consultation Form Section -->
+    <section class="consult-form-section">
+        <div class="consult-form-container zoom-in">
+            <div class="consult-form-title">Book Your Consultation</div>
+            <div class="consult-form-subtitle">Fill out the form below and we’ll get back to you to confirm your session.</div>
+            <form class="consult-form" id="consultForm" action="https://formspree.io/f/mzzvzpar" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required class="animated-field">
+                <input type="email" name="email" placeholder="Your Email" required class="animated-field">
+                <input type="text" name="organization" placeholder="Organization" required class="animated-field">
+                <input type="date" name="date" required class="animated-field">
+                <input type="time" name="time" required class="animated-field">
+                <input type="text" name="topic" placeholder="Project/Topic" required class="animated-field">
+                <textarea name="message" placeholder="Tell us more about your needs" rows="4" required class="animated-field"></textarea>
+                <button type="submit" class="animated-btn">Submit Request</button>
+            </form>
+            <div id="consultSuccess">Thank you! Your consultation request has been received.</div>
+        </div>
+    </section>
+    <script src="js/animations.js"></script>
+    <script>
+    // Background slideshow logic
+    (function() {
+        const slides = document.querySelectorAll('.bg-slide');
+        let current = 0;
+        setInterval(() => {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 6000);
+    })();
+    </script>
+</body>
+</html> 

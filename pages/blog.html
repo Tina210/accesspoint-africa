@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccessPoint Africa Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); color: #333; }
+        .nav { background: rgba(255,255,255,0.95); padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 24px; font-weight: bold; color: #764ba2; display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #764ba2; }
+        .hero-blog { padding: 80px 0 40px; text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .hero-blog h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero-blog p { font-size: 1.2rem; opacity: 0.9; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .blog-card { background: white; border-radius: 18px; box-shadow: 0 8px 24px rgba(118,75,162,0.08); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s forwards; }
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+        .blog-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 16px 32px rgba(118,75,162,0.15); }
+        .blog-image { width: 100%; height: 200px; object-fit: cover; }
+        .blog-content { padding: 24px; }
+        .blog-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 10px; color: #764ba2; }
+        .blog-meta { font-size: 0.95rem; color: #888; margin-bottom: 12px; }
+        .blog-excerpt { font-size: 1.05rem; margin-bottom: 18px; color: #444; }
+        .read-more { color: #667eea; text-decoration: none; font-weight: bold; }
+        .read-more:hover { text-decoration: underline; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr; } .hero-blog h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">🌍 AccessPoint Africa</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#process">Process</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="blog.html" style="color:#764ba2;font-weight:bold;">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Blog Hero -->
+    <section class="hero-blog">
+        <h1>AccessPoint Africa Blog</h1>
+        <p>Insights, stories, and updates on African investment, development, and project success.</p>
+    </section>
+    <!-- Auth Controls -->
+    <div id="registerSection" style="margin: 20px auto; max-width: 400px;">
+      <input type="email" id="registerEmail" placeholder="Email" style="padding:8px; margin:4px; width:48%;">
+      <input type="password" id="registerPassword" placeholder="Password" style="padding:8px; margin:4px; width:48%;">
+      <button id="registerBtn" style="padding:8px 16px; margin:4px;">Register</button>
+    </div>
+    <div id="loginSection" style="margin: 20px auto; max-width: 400px;">
+      <input type="email" id="loginEmail" placeholder="Email" style="padding:8px; margin:4px; width:48%;">
+      <input type="password" id="loginPassword" placeholder="Password" style="padding:8px; margin:4px; width:48%;">
+      <button id="loginBtn" style="padding:8px 16px; margin:4px;">Login</button>
+    </div>
+    <div id="logoutSection" style="display:none; margin: 20px auto; max-width: 400px;">
+      <span id="userEmail" style="margin-right: 10px;"></span>
+      <button id="logoutBtn" style="padding:8px 16px;">Logout</button>
+    </div>
+    <div style="text-align:center; margin: 20px;">
+      <button id="postBtn" style="display:none; padding:10px 24px; background:linear-gradient(45deg,#667eea,#764ba2); color:white; border:none; border-radius:8px; font-weight:bold;">Post</button>
+    </div>
+    <!-- Blog Grid -->
+    <section class="blog-grid">
+        <div class="blog-card">
+            <img class="blog-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="African city skyline" />
+            <div class="blog-content">
+                <div class="blog-title">How Partnerships Drive Africa's Growth</div>
+                <div class="blog-meta">By AccessPoint Africa • May 2024</div>
+                <div class="blog-excerpt">Discover how strategic alliances between local governments and global investors are transforming the continent’s future.</div>
+                <a class="read-more" href="blog-post.html">Read More →</a>
+            </div>
+        </div>
+        <div class="blog-card">
+            <img class="blog-image" src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Teamwork in Africa" />
+            <div class="blog-content">
+                <div class="blog-title">Market Entry: What Foreign Companies Need to Know</div>
+                <div class="blog-meta">By AccessPoint Africa • April 2024</div>
+                <div class="blog-excerpt">A practical guide for international firms looking to enter African markets, covering legal, cultural, and logistical essentials.</div>
+                <a class="read-more" href="blog-post.html">Read More →</a>
+            </div>
+        </div>
+        <div class="blog-card">
+            <img class="blog-image" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80" alt="African infrastructure" />
+            <div class="blog-content">
+                <div class="blog-title">Project Success: Lessons from the Field</div>
+                <div class="blog-meta">By AccessPoint Africa • March 2024</div>
+                <div class="blog-excerpt">Real-world stories and best practices from successful infrastructure and development projects across Africa.</div>
+                <a class="read-more" href="blog-post.html">Read More →</a>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+  // Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyAZcmFhZyaclOXASkxnqV2EJB3EDgeqLJE",
+    authDomain: "africaconnect-point.firebaseapp.com",
+    projectId: "africaconnect-point",
+    storageBucket: "africaconnect-point.firebasestorage.app",
+    messagingSenderId: "812540466001",
+    appId: "1:812540466001:web:bf9bd42247a4a028ddb970"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  // Registration
+  document.getElementById('registerBtn').onclick = async function() {
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    try {
+      await firebase.auth().createUserWithEmailAndPassword(email, password);
+      await firebase.auth().currentUser.sendEmailVerification();
+      alert('Registration successful! Please check your email to verify your account before logging in.');
+    } catch (e) {
+      alert('Registration failed: ' + e.message);
+    }
+  };
+
+  // Login
+  document.getElementById('loginBtn').onclick = async function() {
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    try {
+      await firebase.auth().signInWithEmailAndPassword(email, password);
+    } catch (e) {
+      alert('Login failed: ' + e.message);
+    }
+  };
+
+  // Logout
+  document.getElementById('logoutBtn').onclick = function() {
+    firebase.auth().signOut();
+  };
+
+  // Auth state change and admin check
+  firebase.auth().onAuthStateChanged(async function(user) {
+    if (user) {
+      document.getElementById('loginSection').style.display = 'none';
+      document.getElementById('registerSection').style.display = 'none';
+      document.getElementById('logoutSection').style.display = 'block';
+      document.getElementById('userEmail').textContent = user.email;
+      if (!user.emailVerified) {
+        document.getElementById('postBtn').style.display = 'none';
+        alert('Please verify your email address before posting. Check your inbox for a verification email.');
+        // Optionally, you could add a button to resend the verification email here
+      } else {
+        const db = firebase.firestore();
+        const adminDoc = await db.collection('admins').doc(user.uid).get();
+        if (adminDoc.exists) {
+          document.getElementById('postBtn').style.display = 'inline-block';
+        } else {
+          document.getElementById('postBtn').style.display = 'none';
+        }
+      }
+    } else {
+      document.getElementById('loginSection').style.display = 'block';
+      document.getElementById('registerSection').style.display = 'block';
+      document.getElementById('logoutSection').style.display = 'none';
+      document.getElementById('postBtn').style.display = 'none';
+    }
+  });
+</script>
+</html> 

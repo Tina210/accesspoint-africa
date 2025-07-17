@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccessPoint Africa - Your Gateway to African Investment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #764ba2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #764ba2;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(118, 75, 162, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            color: white;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #764ba2;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 15px 30px;
+            border: 2px solid white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #764ba2;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #764ba2;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .service-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .step-description {
+            opacity: 0.9;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .about-image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 0 30px;
+            background: #2c3e50;
+            color: white;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="image-container">
+                <img src="images/logo.svg" alt="AccessPoint Africa" class="logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#request-match">Request a Match</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Africa's Most Trusted Investment Gateway</h1>
+                    <p class="hero-subtitle">Connecting Opportunities with Capabilities</p>
+                    <p class="hero-description">
+                        We bridge the gap between governments, institutions, and private-sector project initiators in Africa with foreign companies, investors, and development partners seeking to enter the African market.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn-primary">Explore Services</a>
+                        <a href="#contact" class="btn-secondary">Start Your Journey</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/home.jpeg" alt="AccessPoint Africa - Digital Africa Network" style="width:100%; max-width:450px; border-radius:20px; box-shadow:0 8px 32px rgba(118,75,162,0.10);" class="fade-in-up" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Core Services</h2>
+            <p class="section-subtitle fade-in">
+                Comprehensive solutions for seamless project execution across Africa
+            </p>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🤝</div>
+                    <h3 class="service-title">Project Matchmaking</h3>
+                    <p class="service-description">
+                        Connecting local governments, parastatals, and institutions with foreign companies who have the expertise or capital to implement large-scale projects.
+                    </p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🌍</div>
+                    <h3 class="service-title">Market Entry Support</h3>
+                    <p class="service-description">
+                        Helping foreign companies understand African markets, laws, and logistics with representation, translations, and comprehensive onboarding.
+                    </p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔍</div>
+                    <h3 class="service-title">Due Diligence & Risk Analysis</h3>
+                    <p class="service-description">
+                        Verifying companies and government departments involved in projects, ensuring compliance with local laws and international standards.
+                    </p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">👥</div>
+                    <h3 class="service-title">Stakeholder Engagement</h3>
+                    <p class="service-description">
+                        Managing relationships with ministries, councils, NGOs, and communities involved in project implementation.
+                    </p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📊</div>
+                    <h3 class="service-title">Project Coordination</h3>
+                    <p class="service-description">
+                        Monitoring timelines, budgets, and logistics on both ends after successful matchmaking and initial agreements.
+                    </p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">💡</div>
+                    <h3 class="service-title">Consultancy Services</h3>
+                    <p class="service-description">
+                        Offering development advisory services to donors, banks, and institutions needing trusted local partners.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="section-title fade-in">How We Work</h2>
+            <p class="section-subtitle fade-in">Our proven 6-step process ensures successful project execution</p>
+            <div class="process-steps">
+                <div class="process-step fade-in-up">
+                    <div class="step-number">01</div>
+                    <h3 class="step-title">Opportunity Sourcing</h3>
+                    <p class="step-description">Identify and profile projects from local governments, NGOs, and private companies</p>
+                </div>
+                <div class="process-step slide-in-right">
+                    <div class="step-number">02</div>
+                    <h3 class="step-title">Project Profiling</h3>
+                    <p class="step-description">Conduct background checks and define project scope, timeline, and legal framework</p>
+                </div>
+                <div class="process-step slide-in-left">
+                    <div class="step-number">03</div>
+                    <h3 class="step-title">Partner Matching</h3>
+                    <p class="step-description">Connect opportunities with vetted foreign companies, investors, and development partners</p>
+                </div>
+                <div class="process-step fade-in-up">
+                    <div class="step-number">04</div>
+                    <h3 class="step-title">Connection Facilitation</h3>
+                    <p class="step-description">Manage introductions, NDAs, meetings, translations, and comprehensive onboarding</p>
+                </div>
+                <div class="process-step slide-in-right">
+                    <div class="step-number">05</div>
+                    <h3 class="step-title">Compliance & Risk Checks</h3>
+                    <p class="step-description">Ensure regulatory clearance, environmental compliance, and contract soundness</p>
+                </div>
+                <div class="process-step slide-in-left">
+                    <div class="step-number">06</div>
+                    <h3 class="step-title">Project Coordination</h3>
+                    <p class="step-description">Monitor progress, manage logistics, and ensure smooth communication throughout</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Stakeholders Section -->
+    <section class="stakeholders" id="stakeholders" style="padding: 100px 0; background: #f5f7fa;">
+      <div class="container">
+        <h2 class="section-title fade-in" style="text-align:center; color:#764ba2;">🧠 Key Stakeholders We Engage</h2>
+        <div class="stakeholders-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 40px auto 0;">
+          <div class="stakeholder-col fade-in-up" style="background: white; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 36px 28px;">
+            <h3 style="color:#009975; margin-bottom:18px;">🔹 On the Local Side</h3>
+            <ul style="font-size:1.1rem; color:#333; line-height:2; list-style: disc inside;">
+              <li>Government ministries (Infrastructure, ICT, Water, Agriculture, etc.)</li>
+              <li>Municipal councils & district commissioners</li>
+              <li>NGOs & parastatals</li>
+              <li>Local private companies needing foreign partners</li>
+            </ul>
+          </div>
+          <div class="stakeholder-col fade-in-up" style="background: white; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 36px 28px;">
+            <h3 style="color:#764ba2; margin-bottom:18px;">🔹 On the Foreign Side</h3>
+            <ul style="font-size:1.1rem; color:#333; line-height:2; list-style: disc inside;">
+              <li>International companies seeking entry into Africa</li>
+              <li>Donor agencies (e.g. USAID, GIZ, JICA, DFID)</li>
+              <li>Development banks (World Bank, AfDB)</li>
+              <li>PPP investors, tech, engineering, construction firms</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teams Section -->
+    <section class="teams" id="team" style="padding: 100px 0; background: #fff;">
+      <div class="container">
+        <h2 class="section-title fade-in-up zoom-in" style="text-align:center; color:#764ba2;">Meet Our Team</h2>
+        <div class="teams-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; max-width: 1100px; margin: 40px auto 0;">
+          <!-- Founder/CEO -->
+          <div class="team-card fade-in-up zoom-in" style="animation-delay:0.1s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center;">
+            <div style="width:90px; height:90px; margin:0 auto 18px; background:#d1d5db; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#764ba2; box-shadow:0 2px 8px rgba(118,75,162,0.10);">
+              <span style="font-size:2.7rem;">👤</span>
+            </div>
+            <h3 style="color:#009975; margin-bottom:6px;">Founder</h3>
+            <div style="font-weight:bold; color:#333; margin-bottom:8px;">Avisha Hussein</div>
+            <div style="color:#555; font-size:1.05rem;">Vision, Leadership</div>
+          </div>
+          <!-- Business Development Lead -->
+          <div class="team-card fade-in-up zoom-in" style="animation-delay:0.3s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center;">
+            <div style="width:90px; height:90px; margin:0 auto 18px; background:#d1d5db; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#764ba2; box-shadow:0 2px 8px rgba(118,75,162,0.10);">
+              <span style="font-size:2.7rem;">👤</span>
+            </div>
+            <h3 style="color:#009975; margin-bottom:6px;">CEO</h3>
+            <div style="font-weight:bold; color:#333; margin-bottom:8px;">Euster Manje</div>
+            <div style="color:#555; font-size:1.05rem;">Strategy, Opportunity Sourcing</div>
+          </div>
+          <!-- Partnerships Lead -->
+          <div class="team-card slide-in-left zoom-in" style="animation-delay:0.5s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center;">
+            <div style="width:90px; height:90px; margin:0 auto 18px; background:#d1d5db; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#764ba2; box-shadow:0 2px 8px rgba(118,75,162,0.10);">
+              <span style="font-size:2.7rem;">👤</span>
+            </div>
+            <h3 style="color:#009975; margin-bottom:6px;">Partnerships & Client Relations</h3>
+            <div style="font-weight:bold; color:#333; margin-bottom:8px;">Overtone Mpwalabwazi</div>
+            <div style="color:#555; font-size:1.05rem;">Foreign Company Onboarding</div>
+          </div>
+        </div>
+        <!-- See More Button -->
+        <div style="text-align:center; margin-top:32px;">
+          <button id="seeMoreTeam" class="animated-btn zoom-in" style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 14px 36px; border-radius: 24px; font-size: 1.1rem; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s;">See More</button>
+        </div>
+        <!-- Hidden Team Members -->
+        <div id="moreTeam" style="display:none; margin-top:32px; overflow-x:auto;">
+          <div class="teams-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; max-width: 1100px; margin: 0 auto;">
+            <div class="team-card slide-in-left zoom-in" style="animation-delay:0.1s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center;">
+              <div style="width:90px; height:90px; margin:0 auto 18px; background:#d1d5db; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#764ba2; box-shadow:0 2px 8px rgba(118,75,162,0.10);">
+                <span style="font-size:2.7rem;">👤</span>
+              </div>
+              <h3 style="color:#009975; margin-bottom:6px;">Legal & Compliance</h3>
+              <div style="font-weight:bold; color:#333; margin-bottom:8px;">Team Member</div>
+              <div style="color:#555; font-size:1.05rem;">Contracts, Legal Flow</div>
+            </div>
+            <div class="team-card slide-in-right zoom-in" style="animation-delay:0.2s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center;">
+              <div style="width:90px; height:90px; margin:0 auto 18px; background:#d1d5db; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#764ba2; box-shadow:0 2px 8px rgba(118,75,162,0.10);">
+                <span style="font-size:2.7rem;">👤</span>
+              </div>
+              <h3 style="color:#009975; margin-bottom:6px;">Operations & Logistics</h3>
+              <div style="font-weight:bold; color:#333; margin-bottom:8px;">Team Member</div>
+              <div style="color:#555; font-size:1.05rem;">Meetings, Delegations, Travel</div>
+            </div>
+            <div class="team-card slide-in-left zoom-in" style="animation-delay:0.3s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center;">
+              <div style="width:90px; height:90px; margin:0 auto 18px; background:#d1d5db; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#764ba2; box-shadow:0 2px 8px rgba(118,75,162,0.10);">
+                <span style="font-size:2.7rem;">👤</span>
+              </div>
+              <h3 style="color:#009975; margin-bottom:6px;">Tech & Platform Dev</h3>
+              <div style="font-weight:bold; color:#333; margin-bottom:8px;">Team Member</div>
+              <div style="color:#555; font-size:1.05rem;">App/Website Management</div>
+            </div>
+            <div class="team-card slide-in-right zoom-in" style="animation-delay:0.4s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center;">
+              <div style="width:90px; height:90px; margin:0 auto 18px; background:#d1d5db; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#764ba2; box-shadow:0 2px 8px rgba(118,75,162,0.10);">
+                <span style="font-size:2.7rem;">👤</span>
+              </div>
+              <h3 style="color:#009975; margin-bottom:6px;">Marketing & PR</h3>
+              <div style="font-weight:bold; color:#333; margin-bottom:8px;">Team Member</div>
+              <div style="color:#555; font-size:1.05rem;">Credibility, Reports, News</div>
+            </div>
+            <div class="team-card slide-in-left zoom-in" style="animation-delay:0.5s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center;">
+              <div style="width:90px; height:90px; margin:0 auto 18px; background:#d1d5db; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#764ba2; box-shadow:0 2px 8px rgba(118,75,162,0.10);">
+                <span style="font-size:2.7rem;">👤</span>
+              </div>
+              <h3 style="color:#009975; margin-bottom:6px;">Finance</h3>
+              <div style="font-weight:bold; color:#333; margin-bottom:8px;">Team Member</div>
+              <div style="color:#555; font-size:1.05rem;">Invoicing, Subscriptions, Investors</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2 class="section-title" style="text-align: left;">About AccessPoint Africa</h2>
+                    <p>
+                        AccessPoint Africa is more than just a business - we're a strategic bridge connecting African opportunities with global capabilities. Based in Africa, we understand the unique challenges and immense potential of the continent.
+                    </p>
+                    <p>
+                        Our mission is to become Africa's most trusted gateway for investment, development, and project execution. We solve the biggest problem in African development: the gap between opportunity and execution.
+                    </p>
+                    <p>
+                        From infrastructure projects to digital transformation initiatives, we facilitate partnerships that drive sustainable development across the continent. Our expertise spans multiple sectors including healthcare, education, infrastructure, technology, and agriculture.
+                    </p>
+                </div>
+                <div class="about-image-placeholder fade-in">
+                    📈 Growth & Impact Metrics
+                    <br>
+                    [About Image/Infographic Space]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Successful Projects</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Partner Countries</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">$500M+</div>
+                    <div class="stat-label">Projects Facilitated</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Trusted Partners</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2 class="cta-title">Ready to Transform Africa Together?</h2>
+                <p class="cta-description">
+                    Join our network of trusted partners and be part of Africa's development story. Let's connect your capabilities with limitless opportunities.
+                </p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="join.html" class="btn-primary animated-btn">Join Our Network</a>
+                    <a href="consultation.html" class="btn-secondary animated-btn">Schedule Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request a Match Section -->
+    <section class="request-match-section" id="request-match" style="padding: 100px 0; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);">
+        <div class="container fade-in" style="max-width: 600px; margin: 0 auto; background: white; border-radius: 24px; box-shadow: 0 8px 32px rgba(118,75,162,0.10); padding: 48px 32px;">
+            <h2 class="section-title" style="color: #764ba2; text-align: center; margin-bottom: 10px;">Request a Match</h2>
+            <p class="section-subtitle" style="color: #555; text-align: center; margin-bottom: 32px;">Connect your project with the right partners. Fill out the form below and our team will get in touch.</p>
+            <form action="https://formspree.io/f/mzzvzpar" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required style="padding: 14px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+                <input type="email" name="email" placeholder="Your Email" required style="padding: 14px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+                <input type="text" name="organization" placeholder="Organization" required style="padding: 14px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+                <select name="projectType" required style="padding: 14px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+                    <option value="">Select Project Type</option>
+                    <option value="Infrastructure">Infrastructure</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Education">Education</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Other">Other</option>
+                </select>
+                <textarea name="description" placeholder="Project Description" rows="5" required style="padding: 14px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;"></textarea>
+                <button type="submit" style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 16px; border-radius: 10px; font-size: 1.1rem; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s;">Submit Request</button>
+            </form>
+            <div id="requestMatchSuccess" style="display:none; color: #009975; text-align: center; margin-top: 20px; font-weight: bold;">Thank you! Your request has been submitted.</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🌍 AccessPoint Africa</h3>
+                    <p>Your trusted gateway to African investment and development opportunities.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Project Matchmaking</a></li>
+                        <li><a href="#">Market Entry Support</a></li>
+                        <li><a href="#">Due Diligence</a></li>
+                        <li><a href="#">Stakeholder Engagement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>📧 info@accesspoint-africa.com</li>
+                        <li>📱 +265 XXX XXXX</li>
+                        <li>🏢 Blantyre, Malawi</li>
+                        <li>🌐 accesspoint-africa.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AccessPoint Africa. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some interactive elements
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Animate stats on scroll
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    if (stat.textContent.includes('$')) {
+                        stat.textContent = '$' + Math.floor(current) + 'M+';
+                    } else {
+                        stat.textContent = Math.floor(current) + '+';
+                    }
+                }, 20);
+            });
+        }
+
+        // Trigger stats animation when stats section is visible
+        const statsSection = document.querySelector('.stats');
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(statsSection);
+
+        // Request a Match form submission (demo only)
+        document.getElementById('requestMatchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('requestMatchForm').style.display = 'none';
+            document.getElementById('requestMatchSuccess').style.display = 'block';
+        });
+
+        document.getElementById('seeMoreTeam').onclick = function() {
+          var more = document.getElementById('moreTeam');
+          if (more.style.display === 'none') {
+            more.style.display = 'block';
+            setTimeout(function(){
+              more.querySelectorAll('.team-card').forEach(function(card){
+                card.classList.add('visible');
+              });
+            }, 100);
+            this.textContent = 'See Less';
+          } else {
+            more.style.display = 'none';
+            this.textContent = 'See More';
+          }
+        };
+    </script>
+</body>
+</html>
