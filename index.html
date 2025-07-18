@@ -46,13 +46,24 @@
             padding: 0 20px;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #764ba2;
+        .logo-container {
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #764ba2;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #764ba2;
         }
 
         .nav-links {
@@ -91,7 +102,7 @@
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -531,8 +542,9 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <div class="image-container">
-                <img src="images/logo.svg" alt="AccessPoint Africa" class="logo">
+            <div class="logo-container">
+                <img src="images/ACCESS-LOGO.png" alt="AccessPoint Africa" class="logo-img">
+                <span class="logo-text">AccessPoint Africa</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -696,29 +708,23 @@
         <h2 class="section-title fade-in-up zoom-in" style="text-align:center; color:#764ba2;">Meet Our Team</h2>
         <div class="teams-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; max-width: 1100px; margin: 40px auto 0;">
           <!-- Founder/CEO -->
-          <div class="team-card fade-in-up zoom-in" style="animation-delay:0.1s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center;">
-            <div style="width:90px; height:90px; margin:0 auto 18px; background:#d1d5db; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#764ba2; box-shadow:0 2px 8px rgba(118,75,162,0.10);">
-              <span style="font-size:2.7rem;">👤</span>
-            </div>
-            <h3 style="color:#009975; margin-bottom:6px;">Founder</h3>
+          <div class="team-card fade-in-up zoom-in" style="animation-delay:0.1s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(118,75,162,0.15)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 16px rgba(118,75,162,0.06)'">
+            <img src="images/founder.jpg" alt="Avisha Hussein - Founder" style="width:90px; height:90px; margin:0 auto 18px; border-radius:50%; object-fit:cover; box-shadow:0 2px 8px rgba(118,75,162,0.10); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 16px rgba(118,75,162,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 8px rgba(118,75,162,0.10)'">
+            <h3 style="color:#009975; margin-bottom:6px; transition: color 0.3s ease;">Founder</h3>
             <div style="font-weight:bold; color:#333; margin-bottom:8px;">Avisha Hussein</div>
             <div style="color:#555; font-size:1.05rem;">Vision, Leadership</div>
           </div>
           <!-- Business Development Lead -->
-          <div class="team-card fade-in-up zoom-in" style="animation-delay:0.3s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center;">
-            <div style="width:90px; height:90px; margin:0 auto 18px; background:#d1d5db; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#764ba2; box-shadow:0 2px 8px rgba(118,75,162,0.10);">
-              <span style="font-size:2.7rem;">👤</span>
-            </div>
-            <h3 style="color:#009975; margin-bottom:6px;">CEO</h3>
+          <div class="team-card fade-in-up zoom-in" style="animation-delay:0.3s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(118,75,162,0.15)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 16px rgba(118,75,162,0.06)'">
+            <img src="images/ceo.jpg" alt="Euster Manje - CEO" style="width:90px; height:90px; margin:0 auto 18px; border-radius:50%; object-fit:cover; box-shadow:0 2px 8px rgba(118,75,162,0.10); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 16px rgba(118,75,162,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 8px rgba(118,75,162,0.10)'">
+            <h3 style="color:#009975; margin-bottom:6px; transition: color 0.3s ease;">CEO</h3>
             <div style="font-weight:bold; color:#333; margin-bottom:8px;">Euster Manje</div>
             <div style="color:#555; font-size:1.05rem;">Strategy, Opportunity Sourcing</div>
           </div>
           <!-- Partnerships Lead -->
-          <div class="team-card slide-in-left zoom-in" style="animation-delay:0.5s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center;">
-            <div style="width:90px; height:90px; margin:0 auto 18px; background:#d1d5db; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:#764ba2; box-shadow:0 2px 8px rgba(118,75,162,0.10);">
-              <span style="font-size:2.7rem;">👤</span>
-            </div>
-            <h3 style="color:#009975; margin-bottom:6px;">Partnerships & Client Relations</h3>
+          <div class="team-card slide-in-left zoom-in" style="animation-delay:0.5s; background: #f5f7fa; border-radius: 18px; box-shadow: 0 4px 16px rgba(118,75,162,0.06); padding: 32px 24px; text-align:center; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(118,75,162,0.15)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 16px rgba(118,75,162,0.06)'">
+            <img src="images/overton.jpg" alt="Overtone Mpwalabwazi - Partnerships & Client Relations" style="width:90px; height:90px; margin:0 auto 18px; border-radius:50%; object-fit:cover; box-shadow:0 2px 8px rgba(118,75,162,0.10); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 16px rgba(118,75,162,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 8px rgba(118,75,162,0.10)'">
+            <h3 style="color:#009975; margin-bottom:6px; transition: color 0.3s ease;">Partnerships & Client Relations</h3>
             <div style="font-weight:bold; color:#333; margin-bottom:8px;">Overtone Mpwalabwazi</div>
             <div style="color:#555; font-size:1.05rem;">Foreign Company Onboarding</div>
           </div>
@@ -776,25 +782,97 @@
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text fade-in">
-                    <h2 class="section-title" style="text-align: left;">About AccessPoint Africa</h2>
-                    <p>
-                        AccessPoint Africa is more than just a business - we're a strategic bridge connecting African opportunities with global capabilities. Based in Africa, we understand the unique challenges and immense potential of the continent.
-                    </p>
-                    <p>
-                        Our mission is to become Africa's most trusted gateway for investment, development, and project execution. We solve the biggest problem in African development: the gap between opportunity and execution.
-                    </p>
-                    <p>
-                        From infrastructure projects to digital transformation initiatives, we facilitate partnerships that drive sustainable development across the continent. Our expertise spans multiple sectors including healthcare, education, infrastructure, technology, and agriculture.
-                    </p>
+    <section class="about" id="about" style="padding: 100px 0; background: url('images/Infographic.jpeg') center/cover; position: relative;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7);"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="text-align: center; margin-bottom: 60px;" class="fade-in-up">
+                <h2 class="section-title" style="color: white; font-size: 3rem; margin-bottom: 20px;">About AccessPoint Africa</h2>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1.3rem; max-width: 800px; margin: 0 auto;">
+                    Pan-African connector for international investors, developers & local opportunities
+                </p>
+                <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-top: 10px;">
+                    Bridging global potential with African development
+                </p>
+                <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-top: 5px;">
+                    Trusted project intermediary for governments, businesses, and NGOs
+                </p>
+            </div>
+            
+            <!-- Infographic Elements -->
+            <div style="max-width: 1000px; margin: 0 auto; position: relative;">
+                <!-- Vertical Line -->
+                <div style="position: absolute; left: 30px; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,0.3); animation: slideInLeft 1.5s ease-out;"></div>
+                
+                <!-- Section 01 -->
+                <div style="display: flex; align-items: center; margin-bottom: 40px; position: relative;" class="fade-in-up" style="animation-delay: 0.2s;">
+                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 30px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255,255,255,0.2)'">
+                        <span style="color: white; font-size: 1.5rem; font-weight: bold;">01</span>
+                    </div>
+                    <div style="flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.1)'">
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg)'" onmouseout="this.style.transform='rotate(0deg)'">
+                                <span style="color: white; font-size: 1.5rem;">🤝</span>
+                            </div>
+                            <h3 style="color: white; font-size: 1.5rem; margin: 0;">Strategic Partnerships</h3>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin: 0; line-height: 1.6;">
+                            Matching investors with viable African projects through our extensive network and deep market knowledge.
+                        </p>
+                    </div>
                 </div>
-                <div class="about-image-placeholder fade-in">
-                    📈 Growth & Impact Metrics
-                    <br>
-                    [About Image/Infographic Space]
+                
+                <!-- Section 02 -->
+                <div style="display: flex; align-items: center; margin-bottom: 40px; position: relative;" class="fade-in-up" style="animation-delay: 0.4s;">
+                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 30px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255,255,255,0.2)'">
+                        <span style="color: white; font-size: 1.5rem; font-weight: bold;">02</span>
+                    </div>
+                    <div style="flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.1)'">
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg)'" onmouseout="this.style.transform='rotate(0deg)'">
+                                <span style="color: white; font-size: 1.5rem;">🌍</span>
+                            </div>
+                            <h3 style="color: white; font-size: 1.5rem; margin: 0;">Project Representation</h3>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin: 0; line-height: 1.6;">
+                            Acting on behalf of companies or countries to ensure successful project execution and stakeholder alignment.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Section 03 -->
+                <div style="display: flex; align-items: center; margin-bottom: 40px; position: relative;" class="fade-in-up" style="animation-delay: 0.6s;">
+                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 30px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255,255,255,0.2)'">
+                        <span style="color: white; font-size: 1.5rem; font-weight: bold;">03</span>
+                    </div>
+                    <div style="flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.1)'">
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg)'" onmouseout="this.style.transform='rotate(0deg)'">
+                                <span style="color: white; font-size: 1.5rem;">🔗</span>
+                            </div>
+                            <h3 style="color: white; font-size: 1.5rem; margin: 0;">Country Matching</h3>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin: 0; line-height: 1.6;">
+                            Connecting the right investor with the right country based on project requirements and market opportunities.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Section 04 -->
+                <div style="display: flex; align-items: center; position: relative;" class="fade-in-up" style="animation-delay: 0.8s;">
+                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 30px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255,255,255,0.2)'">
+                        <span style="color: white; font-size: 1.5rem; font-weight: bold;">04</span>
+                    </div>
+                    <div style="flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.1)'">
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg)'" onmouseout="this.style.transform='rotate(0deg)'">
+                                <span style="color: white; font-size: 1.5rem;">💡</span>
+                            </div>
+                            <h3 style="color: white; font-size: 1.5rem; margin: 0;">Investment Facilitation</h3>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin: 0; line-height: 1.6;">
+                            Helping fund and launch transformational projects that drive sustainable development across Africa.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -870,7 +948,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>🌍 AccessPoint Africa</h3>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <img src="images/ACCESS-LOGO.png" alt="AccessPoint Africa" style="height: 30px; width: auto;">
+                        <h3 style="color: #764ba2; margin: 0;">AccessPoint Africa</h3>
+                    </div>
                     <p>Your trusted gateway to African investment and development opportunities.</p>
                 </div>
                 <div class="footer-section">
