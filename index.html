@@ -501,6 +501,48 @@
             }
         }
 
+        /* Floating Particle Animations */
+        @keyframes float1 {
+            0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
+        }
+        
+        @keyframes float2 {
+            0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { transform: translateY(-80px) translateX(-30px); opacity: 0; }
+        }
+        
+        @keyframes float3 {
+            0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateY(-120px) translateX(20px); opacity: 0; }
+        }
+        
+        /* Background Movement Animation */
+        @keyframes slowMove {
+            0% { transform: scale(1.1) translate(0px, 0px); }
+            50% { transform: scale(1.1) translate(-10px, -5px); }
+            100% { transform: scale(1.1) translate(0px, 0px); }
+        }
+        
+        /* Glowing Orb Animations */
+        @keyframes glow1 {
+            0% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+            100% { opacity: 0.3; transform: scale(1); }
+        }
+        
+        @keyframes glow2 {
+            0% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+            100% { opacity: 0.2; transform: scale(1); }
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
@@ -782,18 +824,36 @@
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about" style="padding: 100px 0; background: url('images/Infographic.jpeg') center/cover; position: relative;">
+    <section class="about" id="about" style="padding: 100px 0; background: url('images/Infographic.jpeg') center/cover; position: relative; overflow: hidden;">
+        <!-- Animated Background Overlay -->
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7);"></div>
+        
+        <!-- Floating Particles Effect -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; z-index: 1;">
+            <div style="position: absolute; width: 4px; height: 4px; background: rgba(255,255,255,0.3); border-radius: 50%; animation: float1 6s infinite linear; top: 20%; left: 10%;"></div>
+            <div style="position: absolute; width: 6px; height: 6px; background: rgba(118,75,162,0.4); border-radius: 50%; animation: float2 8s infinite linear; top: 60%; left: 80%;"></div>
+            <div style="position: absolute; width: 3px; height: 3px; background: rgba(255,255,255,0.2); border-radius: 50%; animation: float3 7s infinite linear; top: 80%; left: 20%;"></div>
+            <div style="position: absolute; width: 5px; height: 5px; background: rgba(102,126,234,0.3); border-radius: 50%; animation: float1 9s infinite linear; top: 30%; left: 70%;"></div>
+            <div style="position: absolute; width: 4px; height: 4px; background: rgba(255,255,255,0.25); border-radius: 50%; animation: float2 5s infinite linear; top: 70%; left: 40%;"></div>
+        </div>
+        
+        <!-- Subtle Background Movement -->
+        <div style="position: absolute; top: -50px; left: -50px; right: -50px; bottom: -50px; background: url('images/Infographic.jpeg') center/cover; animation: slowMove 20s infinite ease-in-out; opacity: 0.1; z-index: 0;"></div>
+        
+        <!-- Glowing Orbs -->
+        <div style="position: absolute; width: 200px; height: 200px; background: radial-gradient(circle, rgba(118,75,162,0.1) 0%, transparent 70%); border-radius: 50%; animation: glow1 4s infinite ease-in-out; top: 10%; right: 10%; z-index: 1;"></div>
+        <div style="position: absolute; width: 150px; height: 150px; background: radial-gradient(circle, rgba(102,126,234,0.1) 0%, transparent 70%); border-radius: 50%; animation: glow2 6s infinite ease-in-out; bottom: 20%; left: 5%; z-index: 1;"></div>
+        
         <div class="container" style="position: relative; z-index: 2;">
             <div style="text-align: center; margin-bottom: 60px;" class="fade-in-up">
-                <h2 class="section-title" style="color: white; font-size: 3rem; margin-bottom: 20px;">About AccessPoint Africa</h2>
-                <p style="color: rgba(255,255,255,0.9); font-size: 1.3rem; max-width: 800px; margin: 0 auto;">
+                <h2 class="section-title" style="color: white; font-size: 3rem; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">About AccessPoint Africa</h2>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1.3rem; max-width: 800px; margin: 0 auto; text-shadow: 0 1px 5px rgba(0,0,0,0.3);">
                     Pan-African connector for international investors, developers & local opportunities
                 </p>
-                <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-top: 10px;">
+                <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-top: 10px; text-shadow: 0 1px 5px rgba(0,0,0,0.3);">
                     Bridging global potential with African development
                 </p>
-                <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-top: 5px;">
+                <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-top: 5px; text-shadow: 0 1px 5px rgba(0,0,0,0.3);">
                     Trusted project intermediary for governments, businesses, and NGOs
                 </p>
             </div>
@@ -801,16 +861,16 @@
             <!-- Infographic Elements -->
             <div style="max-width: 1000px; margin: 0 auto; position: relative;">
                 <!-- Vertical Line -->
-                <div style="position: absolute; left: 30px; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,0.3); animation: slideInLeft 1.5s ease-out;"></div>
+                <div style="position: absolute; left: 30px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent); animation: slideInLeft 1.5s ease-out;"></div>
                 
                 <!-- Section 01 -->
                 <div style="display: flex; align-items: center; margin-bottom: 40px; position: relative;" class="fade-in-up" style="animation-delay: 0.2s;">
-                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 30px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255,255,255,0.2)'">
+                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 30px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease; box-shadow: 0 0 20px rgba(255,255,255,0.1);" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255,255,255,0.3)'; this.style.boxShadow='0 0 30px rgba(255,255,255,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255,255,255,0.2)'; this.style.boxShadow='0 0 20px rgba(255,255,255,0.1)'">
                         <span style="color: white; font-size: 1.5rem; font-weight: bold;">01</span>
                     </div>
-                    <div style="flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.1)'">
+                    <div style="flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateX(10px)'; this.style.background='rgba(255,255,255,0.15)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.1)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'">
                         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                            <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg)'" onmouseout="this.style.transform='rotate(0deg)'">
+                            <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='rotate(0deg)'; this.style.background='rgba(255,255,255,0.2)'">
                                 <span style="color: white; font-size: 1.5rem;">🤝</span>
                             </div>
                             <h3 style="color: white; font-size: 1.5rem; margin: 0;">Strategic Partnerships</h3>
@@ -823,12 +883,12 @@
                 
                 <!-- Section 02 -->
                 <div style="display: flex; align-items: center; margin-bottom: 40px; position: relative;" class="fade-in-up" style="animation-delay: 0.4s;">
-                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 30px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255,255,255,0.2)'">
+                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 30px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease; box-shadow: 0 0 20px rgba(255,255,255,0.1);" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255,255,255,0.3)'; this.style.boxShadow='0 0 30px rgba(255,255,255,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255,255,255,0.2)'; this.style.boxShadow='0 0 20px rgba(255,255,255,0.1)'">
                         <span style="color: white; font-size: 1.5rem; font-weight: bold;">02</span>
                     </div>
-                    <div style="flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.1)'">
+                    <div style="flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateX(10px)'; this.style.background='rgba(255,255,255,0.15)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.1)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'">
                         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                            <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg)'" onmouseout="this.style.transform='rotate(0deg)'">
+                            <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='rotate(0deg)'; this.style.background='rgba(255,255,255,0.2)'">
                                 <span style="color: white; font-size: 1.5rem;">🌍</span>
                             </div>
                             <h3 style="color: white; font-size: 1.5rem; margin: 0;">Project Representation</h3>
@@ -841,12 +901,12 @@
                 
                 <!-- Section 03 -->
                 <div style="display: flex; align-items: center; margin-bottom: 40px; position: relative;" class="fade-in-up" style="animation-delay: 0.6s;">
-                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 30px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255,255,255,0.2)'">
+                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 30px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease; box-shadow: 0 0 20px rgba(255,255,255,0.1);" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255,255,255,0.3)'; this.style.boxShadow='0 0 30px rgba(255,255,255,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255,255,255,0.2)'; this.style.boxShadow='0 0 20px rgba(255,255,255,0.1)'">
                         <span style="color: white; font-size: 1.5rem; font-weight: bold;">03</span>
                     </div>
-                    <div style="flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.1)'">
+                    <div style="flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateX(10px)'; this.style.background='rgba(255,255,255,0.15)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.1)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'">
                         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                            <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg)'" onmouseout="this.style.transform='rotate(0deg)'">
+                            <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='rotate(0deg)'; this.style.background='rgba(255,255,255,0.2)'">
                                 <span style="color: white; font-size: 1.5rem;">🔗</span>
                             </div>
                             <h3 style="color: white; font-size: 1.5rem; margin: 0;">Country Matching</h3>
@@ -859,12 +919,12 @@
                 
                 <!-- Section 04 -->
                 <div style="display: flex; align-items: center; position: relative;" class="fade-in-up" style="animation-delay: 0.8s;">
-                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 30px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255,255,255,0.2)'">
+                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 30px; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease; box-shadow: 0 0 20px rgba(255,255,255,0.1);" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(255,255,255,0.3)'; this.style.boxShadow='0 0 30px rgba(255,255,255,0.2)'" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(255,255,255,0.2)'; this.style.boxShadow='0 0 20px rgba(255,255,255,0.1)'">
                         <span style="color: white; font-size: 1.5rem; font-weight: bold;">04</span>
                     </div>
-                    <div style="flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.1)'">
+                    <div style="flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease; box-shadow: 0 8px 32px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateX(10px)'; this.style.background='rgba(255,255,255,0.15)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.1)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'">
                         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                            <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg)'" onmouseout="this.style.transform='rotate(0deg)'">
+                            <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px; transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg)'; this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.transform='rotate(0deg)'; this.style.background='rgba(255,255,255,0.2)'">
                                 <span style="color: white; font-size: 1.5rem;">💡</span>
                             </div>
                             <h3 style="color: white; font-size: 1.5rem; margin: 0;">Investment Facilitation</h3>
